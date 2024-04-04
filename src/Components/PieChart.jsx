@@ -6,7 +6,7 @@ const PieChart = () => {
   const { conData } = useContext(DashboardContext);
 
   const [years, setYears] = useState([]);
-  const [selectedYear, setSelectedYear] = useState("");
+  const [selectedYear, setSelectedYear] = useState(2023);
   const [selectedCategory, setSelectedCategory] = useState("Sales");
   const [chartType, setChartType] = useState("Pie");
 
