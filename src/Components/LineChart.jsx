@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import { DashboardContext } from "../Context";
 import "../App.css";
 
-const BarChart = () => {
+const LineChart = () => {
   const { conData } = useContext(DashboardContext);
 
   const [selectedYear, setSelectedYear] = useState(2024);
@@ -33,7 +33,7 @@ const BarChart = () => {
     ),
     backgroundColor: colors[index],
     borderColor: "rgba(0, 2, 0, 1)",
-    // borderWidth: 1,
+    borderWidth: 1,
   }));
   const data = {
     labels: labels,
@@ -75,10 +75,10 @@ const BarChart = () => {
             </select>
           </div>
         </div>
-        <Bar data={data} />
+        <Line data={data} />
       </div>
     </>
   );
 };
 
-export default BarChart;
+export default LineChart;

@@ -1,17 +1,22 @@
 import { useState } from "react";
 import "./App.css";
-import SalesChart from "./Components/SalesChart";
 import RevenueChart from "./Components/BarChart";
-import UserActivityChart from "./Components/UserActivityChart";
+import LineChart from "./Components/LineChart";
+import PieChart from "./Components/PieChart";
+import Chart from "chart.js/auto";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      {/* <SalesChart /> */}
-      <RevenueChart />
-      {/* <UserActivityChart /> */}
+      <div
+       className="responsive"
+      >
+        <PieChart />
+        <LineChart />
+        <RevenueChart />
+      </div>
     </>
   );
 }

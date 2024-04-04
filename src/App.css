@@ -1,0 +1,22 @@
+.select-box {
+  display: inline-block;
+}
+.select-box select {
+  padding: 8px 30px 8px 30px;
+  font-size: 18px;
+  border-radius: 5px;
+  background-color: #f6eebb;
+  outline: none;
+  cursor: pointer;
+}
+option {
+  background-color: rgb(207, 240, 206);
+}
+
+.responsive {
+  width: 90vw;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: auto;
+}
