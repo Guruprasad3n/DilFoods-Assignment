@@ -36,7 +36,8 @@
   text-decoration: underline;
   text-decoration-color: rgb(143, 4, 174);
 }
-.select-Box {
+.select-Box,
+.selectBox {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,23 +45,12 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.select-Box > div > select {
+.select-Box > div > select,
+.selectBox > select {
   padding: 5px 10px;
   border-radius: 3px;
   outline: none;
 }
-/* .select-box select {
-  padding: 5px 20px 5px 20px;
-  font-size: 18px;
-  border-radius: 5px;
-  background-color: #f6eebb;
-  outline: none;
-  cursor: pointer;
-}
-option {
-  background-color: rgb(207, 240, 206);
-} */
-
 .responsive {
   width: 95vw;
   display: grid;
@@ -91,8 +81,36 @@ a {
   color: #fff;
   text-decoration: none;
 }
+.doughnut-charts-container {
+  border-bottom: 2px solid rgb(238, 238, 176);
+  padding: 10px;
+}
+.doughnutCh {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(auto, auto);
+  margin: auto;
+  text-align: center;
+  width: min-content;
+  gap: 10px;
+  margin-top: 10px;
+}
+.borderRa {
+  border: 2px solid rgb(154, 229, 229);
+  border-radius: 10px;
+  padding: 10px;
+}
+
 @media screen and (max-width: 768px) {
   .responsive {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .doughnutCh {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 420px) {
+  .doughnutCh {
     grid-template-columns: repeat(1, 1fr);
   }
 }

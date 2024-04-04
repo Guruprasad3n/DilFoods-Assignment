@@ -6,12 +6,14 @@ import PieChart from "./Components/PieChart";
 import Chart from "chart.js/auto";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
+import SmallCharts from "./Components/SmallCharts";
 
 function App() {
   return (
     <>
       <div className="container mx-auto px-4">
         <Navbar />
+        <SmallCharts />
         <div className="responsive">
           <div style={{ width: "90%" }}>
             <LineChart />
