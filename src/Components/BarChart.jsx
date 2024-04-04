@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { DashboardContext } from "../Context";
-import "../App.css";
 
 const BarChart = () => {
   const { conData } = useContext(DashboardContext);
@@ -33,7 +32,8 @@ const BarChart = () => {
     ),
     backgroundColor: colors[index],
     borderColor: "rgba(0, 2, 0, 1)",
-    // borderWidth: 1,
+    borderWidth: 1,
+    hoverOffset: 10,
   }));
   const data = {
     labels: labels,
@@ -49,26 +49,17 @@ const BarChart = () => {
   };
 
   return (
-    <>
-      <div style={{ width: "40%" }}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-around",
-            width: "40%",
-            margin: "auto",
-            marginTop: "20px",
-          }}
-        >
-          <div className="select-box">
+    <div className="">
+      <div>
+        <div className="select-Box">
+          <div>
             <select value={selectedCategory} onChange={handleCategoryChange}>
               <option value="Sales">Sales</option>
               <option value="Revenue">Revenue</option>
               <option value="UserActivity">UserActivity</option>
             </select>
           </div>
-          <div className="select-box">
+          <div>
             <select value={selectedYear} onChange={handleYearChange}>
               <option value={2023}>2023</option>
               <option value={2024}>2024</option>
@@ -77,7 +68,7 @@ const BarChart = () => {
         </div>
         <Bar data={data} />
       </div>
-    </>
+    </div>
   );
 };
 

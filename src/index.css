@@ -1,10 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Butterfly+Kids&family=Jost:ital,wght@0,100..900;1,100..900&family=Kalam:wght@300;400;700&display=swap");
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+/* :root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+} */
+
+/* .kalam-light {
+  font-family: "Kalam", cursive;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.kalam-regular {
+  font-family: "Kalam", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.kalam-bold {
+  font-family: "Kalam", cursive;
+  font-weight: 700;
+  font-style: normal;
+}
+.butterfly-kids-regular {
+  font-family: "Butterfly Kids", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.jost {
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+} */

@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { DashboardContext } from "../Context";
-import "../App.css";
 
 const LineChart = () => {
   const { conData } = useContext(DashboardContext);
@@ -32,8 +31,9 @@ const LineChart = () => {
         : 0
     ),
     backgroundColor: colors[index],
-    borderColor: "rgba(0, 2, 0, 1)",
+    borderColor: "rgba(224, 221, 226, 0.8)",
     borderWidth: 1,
+    hoverOffset: 10,
   }));
   const data = {
     labels: labels,
@@ -49,19 +49,11 @@ const LineChart = () => {
   };
 
   return (
-    <>
-      <div style={{ width: "40%" }}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-around",
-            width: "40%",
-            margin: "auto",
-            marginTop: "20px",
-          }}
-        >
-          <div className="select-box">
+    <div className="">
+      <div >
+        <div className="select-Box">
+        
+          <div>
             <select value={selectedCategory} onChange={handleCategoryChange}>
               <option value="Sales">Sales</option>
               <option value="Revenue">Revenue</option>
@@ -77,7 +69,7 @@ const LineChart = () => {
         </div>
         <Line data={data} />
       </div>
-    </>
+    </div>
   );
 };
 
