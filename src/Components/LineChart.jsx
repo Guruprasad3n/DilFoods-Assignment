@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { DashboardContext } from "../Context";
+import { Select } from "@chakra-ui/react";
 
 const LineChart = () => {
   const { conData } = useContext(DashboardContext);
@@ -61,16 +62,16 @@ const LineChart = () => {
       <div>
         <div className="select-Box">
           <div>
-            <select value={selectedCategory} onChange={handleCategoryChange}>
+            <Select value={selectedCategory} onChange={handleCategoryChange}>
               <option value="Electronics">Electronics</option>
               <option value="Fashion">Fashion</option>
-            </select>
+            </Select>
           </div>
           <div className="select-box">
-            <select value={selectedYear} onChange={handleYearChange}>
+            <Select value={selectedYear} onChange={handleYearChange}>
               <option value={2023}>2023</option>
               <option value={2024}>2024</option>
-            </select>
+            </Select>
           </div>
         </div>
         <Line data={data} />

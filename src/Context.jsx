@@ -1,46 +1,39 @@
-import axios from "axios";
 import React, { useState, createContext, useEffect } from "react";
 
 export const DashboardContext = createContext();
-
-const fetchData = async () => {
-  try {
-    const response = await axios.get(
-      "https://backendpracticejson.onrender.com/data"
-    );
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    return [];
-  }
-};
+import axios from "axios";
+import LoadingIndicator from "./Components/LoadingIndicator";
 
 export const ContextProvider = ({ children }) => {
   const [conData, setConData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchDataAndProcess = async () => {
+    const fetchData = async () => {
       try {
-        if (conData.length === 0) {
-          const fetchedData = await fetchData();
-          setConData(fetchedData);
-        }
+        const response = await axios.get(
+          "https://backendpracticejson.onrender.com/data"
+        );
+        setConData(response.data);
+        setLoading(false);
       } catch (error) {
-        console.error("Error processing data:", error);
+        console.error("Error fetching data:", error);
+        setLoading(false);
       }
     };
 
-    fetchDataAndProcess();
-  }, [conData]); 
-
-  const value = {
-    conData,
-    setConData,
-  };
+    fetchData();
+  }, []);
 
   return (
-    <DashboardContext.Provider value={value}>
-      {children}
-    </DashboardContext.Provider>
+    <div>
+      {loading ? (
+        <LoadingIndicator />
+      ) : (
+        <DashboardContext.Provider value={{ conData }}>
+          {children}
+        </DashboardContext.Provider>
+      )}
+    </div>
   );
 };

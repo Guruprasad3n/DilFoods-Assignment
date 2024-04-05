@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Doughnut, Pie } from "react-chartjs-2";
 import { DashboardContext } from "../Context";
+import { Select, Container, Heading } from "@chakra-ui/react";
 import "../App.css";
 
 const DoughnutChart = ({ data }) => {
@@ -117,16 +118,18 @@ const SmallCharts = () => {
   return (
     <div className="doughnut-charts-container">
       <div style={{ margin: "auto" }}>
-        <h3 style={{ textAlign: "center" }}>Complete Products</h3>
-        <div className="selectBox">
-          <select value={selectedYear || ""} onChange={handleYearChange}>
-            {years.map((year) => (
-              <option key={year} value={year}>
-                {year}
-              </option>
-            ))}
-          </select>
-        </div>
+        <p  style={{ textAlign: "center", fontSize:"1.5rem" }}>Complete Products</p>
+        <Container maxW="md">
+          <div className="selectBox">
+            <Select value={selectedYear || ""} onChange={handleYearChange}>
+              {years.map((year) => (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              ))}
+            </Select>
+          </div>
+        </Container>
         <div className="doughnutCh">
           <div className="borderRa">
             {salesData && <DoughnutChart data={salesData} />}

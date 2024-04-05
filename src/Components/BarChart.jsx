@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { DashboardContext } from "../Context";
+import { Select } from "@chakra-ui/react";
 
 const BarChart = () => {
   const { conData } = useContext(DashboardContext);
@@ -53,17 +54,17 @@ const BarChart = () => {
       <div>
         <div className="select-Box">
           <div>
-            <select value={selectedCategory} onChange={handleCategoryChange}>
+            <Select value={selectedCategory} onChange={handleCategoryChange}>
               <option value="Sales">Sales</option>
               <option value="Revenue">Revenue</option>
               <option value="UserActivity">UserActivity</option>
-            </select>
+            </Select>
           </div>
           <div>
-            <select value={selectedYear} onChange={handleYearChange}>
+            <Select value={selectedYear} onChange={handleYearChange}>
               <option value={2023}>2023</option>
               <option value={2024}>2024</option>
-            </select>
+            </Select>
           </div>
         </div>
         <Bar data={data} />

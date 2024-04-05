@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Pie, Doughnut } from "react-chartjs-2";
 import { DashboardContext } from "../Context";
+import { Select } from '@chakra-ui/react'
 
 const PieChart = () => {
   const { conData } = useContext(DashboardContext);
@@ -91,7 +92,7 @@ const PieChart = () => {
             }}
           >
             <div>
-              <select
+              <Select
                 style={{ padding: "5px 5px" }}
                 value={selectedCategory}
                 onChange={handleCategoryChange}
@@ -99,10 +100,10 @@ const PieChart = () => {
                 <option value="Sales">Sales</option>
                 <option value="Revenue">Revenue</option>
                 <option value="UserActivity">UserActivity</option>
-              </select>
+              </Select>
             </div>
             <div>
-              <select
+              <Select
                 style={{ padding: "5px 5px" }}
                 value={selectedYear || ""}
                 onChange={handleYearChange}
@@ -112,17 +113,17 @@ const PieChart = () => {
                     {year}
                   </option>
                 ))}
-              </select>
+              </Select>
             </div>
             <div>
-              <select
+              <Select
                 style={{ padding: "5px 5px" }}
                 value={chartType}
                 onChange={handleChartTypeChange}
               >
                 <option value="Pie">Pie Chart</option>
                 <option value="Doughnut">Doughnut Chart</option>
-              </select>
+              </Select>
             </div>
           </div>
         </div>
