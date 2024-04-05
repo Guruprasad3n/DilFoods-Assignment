@@ -11,7 +11,7 @@ import SmallCharts from "./Components/SmallCharts";
 function App() {
   return (
     <>
-      <div className="">
+      <div className="" style={{margin:"auto"}}>
         <Navbar />
         <SmallCharts />
         <div className="responsive">

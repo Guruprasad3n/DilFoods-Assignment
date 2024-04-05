@@ -17,7 +17,7 @@ const MetricsCard = ({ label, value }) => {
   return (
     <div className="metric-card">
       <h3>{label}</h3>
-      <p style={{backgroundColor:"transparent"}}>{formattedValue}</p>
+      <p style={{ backgroundColor: "transparent" }}>{formattedValue}</p>
     </div>
   );
 };
@@ -37,7 +37,6 @@ const SmallCharts = () => {
       setSelectedYear(uniqueYears[0]);
     }
   }, [conData]);
-  //   console.log("salesData", salesData);
   useEffect(() => {
     if (!selectedYear) return;
 
@@ -45,27 +44,10 @@ const SmallCharts = () => {
       (entry) => entry.Year === selectedYear
     );
 
-    console.log("filteredSalesData", filteredSalesData);
-
-    const sales = filteredSalesData.reduce(
-      (acc, entry) => acc + entry.Sales,
-      0
-    );
-    console.log("sales", sales);
-    const revenue = filteredSalesData.reduce(
-      (acc, entry) => acc + entry.Revenue,
-      0
-    );
-    const userActivity = filteredSalesData.reduce(
-      (acc, entry) => acc + entry.UserActivity,
-      0
-    );
-
     const totalsByYear = {};
 
     filteredSalesData.forEach((entry) => {
       const year = entry.Year;
-      //   console.log("year", year);
 
       if (!totalsByYear[year]) {
         totalsByYear[year] = {
@@ -83,8 +65,6 @@ const SmallCharts = () => {
         });
       });
     });
-
-    console.log(totalsByYear);
 
     const salesChartData = {
       labels: ["Sales"],
@@ -147,14 +127,7 @@ const SmallCharts = () => {
             ))}
           </select>
         </div>
-        <div
-          className="doughnutCh"
-          style={
-            {
-              // border: "1px solid blue",
-            }
-          }
-        >
+        <div className="doughnutCh">
           <div className="borderRa">
             {salesData && <DoughnutChart data={salesData} />}
             {salesData && (

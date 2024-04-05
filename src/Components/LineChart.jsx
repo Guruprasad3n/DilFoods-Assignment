@@ -5,41 +5,49 @@ import { DashboardContext } from "../Context";
 const LineChart = () => {
   const { conData } = useContext(DashboardContext);
 
-  const [selectedYear, setSelectedYear] = useState(2024);
-  const [selectedCategory, setSelectedCategory] = useState("Sales");
+  const [selectedYear, setSelectedYear] = useState(2023);
+  const [selectedCategory, setSelectedCategory] = useState("Electronics");
 
-  const filteredSalesData = conData.filter(
-    (entry) => entry.Year === selectedYear
-  );
+  const filteredData = conData.filter((entry) => entry.Year === selectedYear);
 
-  const labels = filteredSalesData.map((entry) => entry.Month);
+  const months = filteredData.map((entry) => entry.Month);
 
-  const categories =
-    filteredSalesData.length > 0
-      ? Object.keys(filteredSalesData[0].Category)
-      : [];
+  const categorySalesData = Array(months.length).fill(0);
+  const categoryUserActivityData = Array(months.length).fill(0);
 
-  const colors = ["rgba(206, 167, 225, 0.8)", "rgba(177, 245, 214, 0.8)"];
-  const datasets = categories.map((category, index) => ({
-    label: category,
-    data: filteredSalesData.map((entry) =>
-      entry.Category[category]
-        ? entry.Category[category].reduce(
-            (acc, curr) => acc + curr[selectedCategory],
-            0
-          )
-        : 0
-    ),
-    backgroundColor: colors[index],
-    borderColor: "rgba(224, 221, 226, 0.8)",
-    borderWidth: 1,
-    hoverOffset: 10,
-  }));
+  filteredData.forEach((entry) => {
+    if (entry.Category[selectedCategory]) {
+      const index = months.indexOf(entry.Month);
+      entry.Category[selectedCategory].forEach((product) => {
+        categorySalesData[index] += product.Sales;
+        categoryUserActivityData[index] += product.UserActivity;
+      });
+    }
+  });
+
+  const datasets = [
+    {
+      label: "Sales",
+      data: categorySalesData,
+      backgroundColor: "rgba(206, 167, 225, 0.8)",
+      borderColor: "rgba(224, 221, 226, 0.8)",
+      borderWidth: 2,
+      hoverOffset: 10,
+    },
+    {
+      label: "UserActivity",
+      data: categoryUserActivityData,
+      backgroundColor: "rgba(177, 245, 214, 0.8)",
+      borderColor: "rgba(224, 221, 226, 0.8)",
+      borderWidth: 2,
+      hoverOffset: 10,
+    },
+  ];
+
   const data = {
-    labels: labels,
+    labels: months,
     datasets: datasets,
   };
-
   const handleYearChange = (e) => {
     setSelectedYear(parseInt(e.target.value));
   };
@@ -50,14 +58,12 @@ const LineChart = () => {
 
   return (
     <div className="">
-      <div >
+      <div>
         <div className="select-Box">
-        
           <div>
             <select value={selectedCategory} onChange={handleCategoryChange}>
-              <option value="Sales">Sales</option>
-              <option value="Revenue">Revenue</option>
-              <option value="UserActivity">UserActivity</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Fashion">Fashion</option>
             </select>
           </div>
           <div className="select-box">

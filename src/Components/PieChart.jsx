@@ -78,30 +78,52 @@ const PieChart = () => {
   };
 
   return (
-    <div className="" style={{ width: "100%" }}>
+    <div className="" style={{ width: "100%", marginLeft: "20px" }}>
       <div>
-        <div className="select-Box">
-          <div style={{ width: "100%" }}>
-            <select value={selectedCategory} onChange={handleCategoryChange}>
-              <option value="Sales">Sales</option>
-              <option value="Revenue">Revenue</option>
-              <option value="UserActivity">UserActivity</option>
-            </select>
-          </div>
-          <div className="select-box">
-            <select value={selectedYear || ""} onChange={handleYearChange}>
-              {years.map((year) => (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="select-box">
-            <select value={chartType} onChange={handleChartTypeChange}>
-              <option value="Pie">Pie Chart</option>
-              <option value="Doughnut">Doughnut Chart</option>
-            </select>
+        <div>
+          <div
+            style={{
+              display: "flex",
+              gap: "10px",
+              flexWrap: "wrap",
+              alignItems: "center",
+              justifyContent: "cener",
+            }}
+          >
+            <div>
+              <select
+                style={{ padding: "5px 5px" }}
+                value={selectedCategory}
+                onChange={handleCategoryChange}
+              >
+                <option value="Sales">Sales</option>
+                <option value="Revenue">Revenue</option>
+                <option value="UserActivity">UserActivity</option>
+              </select>
+            </div>
+            <div>
+              <select
+                style={{ padding: "5px 5px" }}
+                value={selectedYear || ""}
+                onChange={handleYearChange}
+              >
+                {years.map((year) => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <select
+                style={{ padding: "5px 5px" }}
+                value={chartType}
+                onChange={handleChartTypeChange}
+              >
+                <option value="Pie">Pie Chart</option>
+                <option value="Doughnut">Doughnut Chart</option>
+              </select>
+            </div>
           </div>
         </div>
         {chartType === "Pie" ? <Pie data={data} /> : <Doughnut data={data} />}
