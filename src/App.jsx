@@ -29,7 +29,9 @@ function App() {
             <PieChart />
           </div>
         </div>
-        <Footer />
+       <div className="footer-component">
+       <Footer />
+       </div>
       </div>
     </>
   );

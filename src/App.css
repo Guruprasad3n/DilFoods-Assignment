@@ -18,14 +18,12 @@
   width: 100%;
 }
 .navbar > img {
-  /* margin-left: 60px; */
+  margin-left: 60px;
   height: 90px;
   width: 90px;
 }
 .navbar > div {
   text-align: center;
-  /* border: 1px solid red; */
-  /* width: 400px; */
   margin: auto;
 }
 .navbar > div > p {
@@ -35,6 +33,7 @@
   font-weight: 900;
   text-decoration: underline;
   text-decoration-color: rgb(143, 4, 174);
+  margin-left: -100px;
 }
 .select-Box,
 .selectBox {
@@ -63,12 +62,15 @@
 
 
 .f-component {
-  /* border: 1px solid red; */
   text-align: center;
   background-color: black;
   color: #ffffff;
+  width: 100%;
   padding: 20px 0px;
   margin-top: 20px;
+  position: absolute;
+  top: 100;
+
 }
 .ul-items {
   display: flex;
@@ -103,6 +105,7 @@ a {
   padding: 10px;
   width: 200px;
 }
+
 
 @media screen and (max-width: 768px) {
   .responsive {
