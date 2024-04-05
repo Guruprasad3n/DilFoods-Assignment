@@ -17,7 +17,7 @@ const MetricsCard = ({ label, value }) => {
   return (
     <div className="metric-card">
       <h3>{label}</h3>
-      <p>{formattedValue}</p>
+      <p style={{backgroundColor:"transparent"}}>{formattedValue}</p>
     </div>
   );
 };

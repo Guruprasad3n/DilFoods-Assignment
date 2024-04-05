@@ -11,7 +11,7 @@ import SmallCharts from "./Components/SmallCharts";
 function App() {
   return (
     <>
-      <div className="container mx-auto px-4">
+      <div className="">
         <Navbar />
         <SmallCharts />
         <div className="responsive">
@@ -23,10 +23,7 @@ function App() {
           </div>
           <div
             style={{
-              minWidth: "400px",
-              maxWidth: "800px",
-              // height: "200px",
-              // border: "1px solid red",
+              width: "70%",
             }}
           >
             <PieChart />
